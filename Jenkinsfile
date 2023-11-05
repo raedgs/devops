@@ -26,6 +26,7 @@ pipeline {
                  withSonarQubeEnv(installationName: 'sq'){
                 sh 'mvn sonar:sonar -Dsonar.login=squ_55901a5704aecca6f4cc50192598abdb7743fa1f'
             }
+            }
         }
         stage('Deploy to Nexus') {
             steps {
