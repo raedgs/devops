@@ -6,7 +6,7 @@ pipeline {
         stage('Checkout GIT') {
             steps {
                 echo 'Pulling...'
-                git branch: 'main', url: 'https://github.com/ghaith450/timesheet-devops.git'
+                git branch: 'main', url: 'https://github.com/raedgs/devops/'
             }
         }
         stage('MVN CLEAN') {
@@ -23,7 +23,7 @@ pipeline {
         }
          stage('SonarQube Scan') {
             steps {
-                sh 'mvn sonar:sonar -Dsonar.login=squ_f7bad751dfe7fe4e94bcfcace13ce950318a3d19'
+                sh 'mvn sonar:sonar -Dsonar.login=sqp_00612bec27227f1daa2b81d38a610b0c6730d8f6'
             }
         }
         stage('Deploy to Nexus') {
