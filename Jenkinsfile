@@ -66,7 +66,7 @@ environment {
             steps {
                 // Déployez Prometheus et Grafana en utilisant Docker Compose
                 script {
-                    sh 'docker-compose -f prometheus-grafana/docker-compose.yml up -d'
+                    sh 'docker compose -f prometheus-grafana/docker-compose.yml up -d'
                 }
             }
         }
