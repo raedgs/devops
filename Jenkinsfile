@@ -1,6 +1,9 @@
 pipeline {
     agent any
 
+environment {
+		DOCKERHUB_CREDENTIALS=credentials('docker')
+	}
 
     stages {
         stage('Checkout GIT') {
@@ -43,23 +46,34 @@ pipeline {
                 // Vous pouvez personnaliser cette étape pour votre processus de construction (ex. Gradle).
             }
         }
-        stage('build docker image'){
-            steps{
-                script{
-                        sh 'docker build -t raed005/validation-devops .'
-                }
-            }
+        
+        stage('Build Docker ') {
 
-        }
-        stage('docker hub'){
-            steps{
-                script{
-                    sh 'docker tag raed005/validation-devops raed005/validation-devops'
-                    sh 'docker login -u raed005 -p dckr_pat_P7_gEGGXd3Ru3vHWDq_bo7D6XYE'
-                    sh 'docker push raed005/validation-devops'
-                }
-            }
-        }
+			steps {
+				sh 'docker build -t raed005/validation-devops:latest .'
+			}
+		}
+        
+        stage('Login') {
+
+			steps {
+				sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+			}
+		}
+
+		stage('Push') {
+
+			steps {
+				sh 'docker push raed005/validation-devops:latest'
+			}
+		}
+	}
+
+	post {
+		always {
+			sh 'docker logout'
+		}
+	}
 
 
 
