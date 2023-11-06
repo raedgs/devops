@@ -46,7 +46,7 @@ pipeline {
         stage('build docker image'){
             steps{
                 script{
-                        sh 'docker build -t ghaith90/5nids2-g9-projet1-1.0 .'
+                        sh 'docker build -t raed005/5nids2-g9-projet1-1.0 .'
                 }
             }
 
