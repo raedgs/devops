@@ -46,7 +46,7 @@ pipeline {
         stage('build docker image'){
             steps{
                 script{
-                        sh 'docker build -raed005/validation-devops .'
+                        sh 'docker build -t raed005/validation-devops .'
                 }
             }
 
