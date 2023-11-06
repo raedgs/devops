@@ -1,5 +1,5 @@
 FROM openjdk:11-jre-slim
 EXPOSE 8080
 
-ADD target/5nids2-g9-projet1-1.0.jar 5nids2-g9-projet1-1.0.jar
-ENTRYPOINT ["java","-jar","/5nids2-g9-projet1-1.0.jar"]
+ADD target/validation-devops.jar validation-devops.jar
+ENTRYPOINT ["java","-jar","/validation-devops.jar"]
