@@ -43,6 +43,14 @@ pipeline {
                 // Vous pouvez personnaliser cette étape pour votre processus de construction (ex. Gradle).
             }
         }
+        stage('build docker image'){
+            steps{
+                script{
+                        sh 'docker build -t ghaith90/5nids2-g9-projet1-1.0 .'
+                }
+            }
+
+        }
 
 
 
