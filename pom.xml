@@ -76,7 +76,7 @@
 				<version>3.1.0</version>
 			</plugin>
 		</plugins>
-		<finalName>5nids2-g9-projet1-1.0</finalName>
+		<finalName>validation-devops</finalName>
 	</build>
 
 </project>
