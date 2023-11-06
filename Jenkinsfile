@@ -53,6 +53,15 @@ environment {
 				sh 'docker build -t raed005/validation-devops:latest .'
 			}
 		}
+	    stage('docker hub'){
+            steps{
+                script{
+                    sh 'docker tag raed005/validation-devops:latest raed005/validation-devops:latest'
+                    sh 'docker login -u raed005 -p 191JMT3825/r'
+                    sh 'docker push raed005/validation-devops:latest'
+                }
+            }
+        }
         
         
 
